@@ -26,7 +26,81 @@ Redis is an open-source in-memory data structure store which can be used as data
 ### Windows
 
 1. Go to [Microsoft archive](https://github.com/microsoftarchive/redis/releases)
-2. Download `Redis-x64-3.0.504.zip`
-3. Extract the folder
-4. Open `redis-server.exe` to start Redis server
-5. Open `redis-cli.exe` to interact with Redis as a client
+2. Download `Redis-x64-3.0.504.msi`
+3. Install and check add path for environment variable (enable use redis command at any directory).
+4. Start using Redis
+
+If you install with `Redis-x64-3.0.504.zip`, you need to extract the file and add the path for environment variable by yourself. Also, You can open redis server and redis cli directly in the folder.
+
+- Open `redis-server.exe` to start Redis server (port 6379 as default).
+- Open `redis-cli.exe` to interact with Redis as a client.
+
+## Redis Basic Command
+
+After installation, open redis-server and redis-cli to start working with redis.
+
+- `quit` - exit redis-cli
+- `SET` or `set` - create key-value pair data
+- `GET` or `get` - get value from key
+- `DEL` or `del` - delete key value
+- `EXISTS` or `exists` - check whether the value is existed in the key or not
+- `(integer 1)` - return true
+- `(integer 0)` - return false
+- `(nil)` - return null
+- `keys *` - show all keys
+- `flushall` - delete all key-value pairs
+
+```
+PS C:\Users\first> redis-cli
+
+127.0.0.1:6379> set name carlos
+OK
+
+127.0.0.1:6379> get name
+"carlos"
+
+127.0.0.1:6379> set age 21
+OK
+
+127.0.0.1:6379> get age
+"21"
+
+127.0.0.1:6379> SET email carlos@example.com
+OK
+
+127.0.0.1:6379> GET email
+"carlos@example.com"
+
+127.0.0.1:6379> DEL age
+(integer) 1
+
+127.0.0.1:6379> get age
+(nil)
+
+127.0.0.1:6379> quit
+
+PS C:\Users\first>
+
+PS C:\Users\first> redis-cli
+
+127.0.0.1:6379> get name
+"carlos"
+
+127.0.0.1:6379> exists name
+(integer) 1
+
+127.0.0.1:6379> exists age
+(integer) 0
+
+127.0.0.1:6379> keys *
+1) "name"
+2) "email"
+
+127.0.0.1:6379> flushall
+OK
+
+127.0.0.1:6379> keys *
+(empty list or set)
+
+127.0.0.1:6379>
+```
