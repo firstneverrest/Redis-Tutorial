@@ -104,3 +104,42 @@ OK
 
 127.0.0.1:6379>
 ```
+
+## Set Time To Live (TTL)
+
+Set live time of key-value pair with `expire <key> <second>`
+
+```
+127.0.0.1:6379> set name carlos
+OK
+
+127.0.0.1:6379> get name
+"carlos"
+
+127.0.0.1:6379> ttl name
+(integer) -1
+
+127.0.0.1:6379> expire name 6
+(integer) 1
+
+127.0.0.1:6379> ttl name
+(integer) 4
+
+127.0.0.1:6379> ttl name
+(integer) 2
+
+127.0.0.1:6379> ttl name
+(integer) 1
+
+127.0.0.1:6379> ttl name
+(integer) -2
+
+127.0.0.1:6379> get name
+(nil)
+```
+
+### shorthand
+
+```
+setex name 6 carlos
+```
