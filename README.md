@@ -216,3 +216,29 @@ Store unique data, no duplicate data
 1) "Japan"
 
 ```
+
+## Hash
+
+Key-value pair data type
+
+- `hset <hash> <key> <value>` - create key-value pair in a hash
+- `hget <hash> <key>` - get value from key
+- `hgetall <hash>` - get all key-value pair in a hash
+- `hdel <hash> <key>` - delete key-value pair
+- `hexists <hash> <key>` - check whether key-value is existed or not
+
+```
+127.0.0.1:6379> hset animals name dog
+(integer) 1
+127.0.0.1:6379> hget animals name
+"dog"
+127.0.0.1:6379> hgetall animals
+1) "name"
+2) "dog"
+127.0.0.1:6379> hdel animals name
+(integer) 1
+127.0.0.1:6379> hget animals name
+(nil)
+127.0.0.1:6379> hexists animals name
+(integer) 0
+```
