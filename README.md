@@ -41,7 +41,7 @@ After installation, open redis-server and redis-cli to start working with redis.
 
 - `quit` - exit redis-cli
 - `SET` or `set` - create key-value pair data
-- `GET` or `get` - get value from key
+- `GET` or `get` - get value from key (only use for string data type)
 - `DEL` or `del` - delete key value
 - `EXISTS` or `exists` - check whether the value is existed in the key or not
 - `(integer 1)` - return true
@@ -142,4 +142,45 @@ OK
 
 ```
 setex name 6 carlos
+```
+
+## List
+
+- `lpush <list> <data>`- push data into a list
+- `lpop <list>`- pop the first data from a list
+- `rpop <list>`- pop the last data from a list
+- `lrange <list> <start_index> <end_index>`- pop data out of a list
+-
+
+```
+127.0.0.1:6379> lpush foods tom-yum
+(integer) 1
+
+127.0.0.1:6379> lpush foods salad
+(integer) 2
+
+127.0.0.1:6379> lpush foods som-tum
+(integer) 3
+
+127.0.0.1:6379> get foods
+(error) WRONGTYPE Operation against a key holding the wrong kind of value
+
+127.0.0.1:6379> lrange foods 0 -1
+1) "som-tum"
+2) "salad"
+3) "tom-yum"
+
+127.0.0.1:6379> lpop foods
+"som-tum"
+
+127.0.0.1:6379> lrange foods 0 -1
+1) "salad"
+2) "tom-yum"
+
+127.0.0.1:6379> rpop foods
+"tom-yum"
+
+127.0.0.1:6379> lrange foods 0 -1
+1) "salad"
+
 ```
