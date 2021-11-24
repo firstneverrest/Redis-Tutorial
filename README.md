@@ -39,6 +39,7 @@ If you install with `Redis-x64-3.0.504.zip`, you need to extract the file and ad
 
 After installation, open redis-server and redis-cli to start working with redis.
 
+- `ping` - check connection
 - `quit` - exit redis-cli
 - `SET` or `set` - create key-value pair data
 - `GET` or `get` - get value from key (only use for string data type)
@@ -52,6 +53,9 @@ After installation, open redis-server and redis-cli to start working with redis.
 
 ```
 PS C:\Users\first> redis-cli
+
+127.0.0.1:6379> ping
+PONG
 
 127.0.0.1:6379> set name carlos
 OK
@@ -182,5 +186,33 @@ setex name 6 carlos
 
 127.0.0.1:6379> lrange foods 0 -1
 1) "salad"
+
+```
+
+## Set
+
+Store unique data, no duplicate data
+
+- `sadd` - add a value in a set
+- `srem` - remove a value in a set
+- `smembers` - show all values in a set
+-
+
+```
+127.0.0.1:6379> sadd countries Thailand
+(integer) 1
+
+127.0.0.1:6379> sadd countries Japan
+(integer) 1
+
+127.0.0.1:6379> smembers countries
+1) "Thailand"
+2) "Japan"
+
+127.0.0.1:6379> srem countries Thailand
+(integer) 1
+
+127.0.0.1:6379> smembers countries
+1) "Japan"
 
 ```
