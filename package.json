@@ -1,0 +1,26 @@
+{
+  "name": "redis",
+  "version": "1.0.0",
+  "description": "Redis is an open-source in-memory data structure store which can be used as database, cache and message broker. Redis is a NO SQL database with key-value pair (simplest data model).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firstneverrest/Redis-Tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/firstneverrest/Redis-Tutorial/issues"
+  },
+  "homepage": "https://github.com/firstneverrest/Redis-Tutorial#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "redis": "^3.1.2"
+  }
+}
