@@ -1,6 +1,6 @@
 # Redis Tutorial
 
-Redis is an open-source in-memory data structure store which can be used as database, cache and message broker. Redis is a NO SQL database with key-value pair (simplest data model).
+Redis is an open-source in-memory data structure store which can be used as database, cache and message broker. Redis is a NO SQL database with key-value pair (simplest data model). It store data in memory (RAM) to improve high read/write data performance.
 
 ## Redis datatype
 
@@ -308,3 +308,10 @@ const getOrSetCache = (key, callback) => {
 
 app.listen(4000, () => console.log('Listening on Port 4000'));
 ```
+
+## What is dump.rdb file?
+
+Because Redis store cache data in memory, it can be lost when the server is stopping by accident. Therefore, Redis has two methods to solve this problem.
+
+1. Dumping the dataset to disk (snapshot) - store snapshot on disk in the form of `dump.rdb` file. This method does not need to store high amount of data but cannot store the latest data.
+2. Appending each command to a log (append-only file) - whenever redis receive a command to make change in a dataset, it will store the command in AOF. When the server restart, redis can rebuild with AOF and start working properly. However, this method need larger disk space, you need to manage it properly.
