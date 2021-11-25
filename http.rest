@@ -1,0 +1,8 @@
+### GET all comments
+GET http://localhost:4000/comments
+
+### GET comments by postId
+GET http://localhost:4000/comments?postId=2
+
+### GET comments comment by id
+GET http://localhost:4000/comments/3
